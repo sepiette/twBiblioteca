@@ -10,16 +10,14 @@ import java.util.ArrayList;
 
 public class BibliotecaTests {
     private PrintStream printstream;
-    private Book book1;
-    private Book book2;
+    private Book book;
     private ArrayList<Book> books;
 
 
     @Before
     public void setup() {
         printstream = mock(PrintStream.class);
-        book1 = mock(Book.class);
-        book2 = mock(Book.class);
+        book = mock(Book.class);
         books = new ArrayList<Book>();
     }
 
@@ -41,20 +39,18 @@ public class BibliotecaTests {
 
     @Test
     public void shouldPrintOneBookWhenLibraryHasOneBook() {
-        books.add(book1);
+        books.add(book);
         Biblioteca biblioteca = new Biblioteca(printstream, books);
         biblioteca.printBookList();
-        verify(book1).print();
+        verify(book).print();
     }
 
     @Test
     public void shouldPrintTwoBooksWhenLibraryHasTwoBooks() {
-        books.add(book1);
-        books.add(book2);
+        books.add(book);
+        books.add(book);
         Biblioteca biblioteca = new Biblioteca(printstream, books);
         biblioteca.printBookList();
-        verify(book1).print();
-        verify(book2).print();
-
+        verify(book, times(2)).print();
     }
 }
