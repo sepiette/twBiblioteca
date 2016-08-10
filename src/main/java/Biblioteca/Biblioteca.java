@@ -13,10 +13,7 @@ public class Biblioteca {
         this.printStream = printStream;
         this.bookList = bookList;
     }
-    public void start(){
-        printWelcome();
-        printBookList();
-    }
+
     public void printWelcome() {
         printStream.println("Welcome to the Biblioteca!");
     }

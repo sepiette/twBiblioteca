@@ -26,7 +26,6 @@ public class BibliotecaTests {
         Biblioteca biblioteca = new Biblioteca(printstream, new ArrayList<Book>());
         biblioteca.printWelcome();
         verify(printstream).println("Welcome to the Biblioteca!");
-
     }
 
     @Test
